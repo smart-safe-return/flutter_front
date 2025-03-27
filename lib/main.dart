@@ -11,15 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'YoungFlix',
+      debugShowCheckedModeBanner: false,
+      title: 'Smart Safe Return',
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.black,
         secondaryHeaderColor: Colors.white,
       ),
-      home: const Scaffold(
-        body: Bottom(), // Bottom 컴포넌트로 모든 UI를 이동
-      ),
+      home: const Bottom(), // Bottom 컴포넌트가 최상단으로 항상 탭 유지됨
     );
   }
 }
