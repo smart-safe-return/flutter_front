@@ -6,23 +6,21 @@ class NaverMapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NaverMap(
-      options: NaverMapViewOptions(
-        initialCameraPosition: NCameraPosition(
-          target: NLatLng(37.5665, 126.9780), // 서울 중심 좌표
-          zoom: 10,
-          bearing: 0,
-          tilt: 0,
+    return Scaffold(
+      body: NaverMap(
+        options: NaverMapViewOptions(
+          initialCameraPosition: NCameraPosition(
+            target: NLatLng(37.5665, 126.9780), // 서울 중심 좌표
+            zoom: 15,
+          ),
         ),
-        mapType: NMapType.basic,
-        activeLayerGroups: [NLayerGroup.building, NLayerGroup.transit],
+        onMapReady: (myMapController) {
+          debugPrint("네이버 맵 로딩됨!");
+        },
+        onMapTapped: (point, latLng) {
+          debugPrint("클릭한 위치: ${latLng.latitude}, ${latLng.longitude}");
+        },
       ),
-      onMapReady: (myMapController) {
-        debugPrint("네이버 맵 로딩됨!");
-      },
-      onMapTapped: (point, latLng) {
-        debugPrint("${latLng.latitude}、${latLng.longitude}");
-      },
     );
   }
 }

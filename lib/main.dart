@@ -18,7 +18,7 @@ void main() async {
 Future<void> _initialize() async {
   String naverClientId =
       dotenv.env['NAVER_CLIENT_ID'] ?? 'vapc94wk74'; // .env에서 클라이언트 아이디 가져오기
-  print(naverClientId);
+  // print(naverClientId);
 
   if (naverClientId.isEmpty) {
     throw Exception("네이버 클라이언트 아이디가 .env 파일에 설정되지 않았습니다.");
