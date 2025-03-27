@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_safe_return/components/setting/mypage.dart';
+import 'package:smart_safe_return/components/home/naver_map.dart';
 
 class Bottom extends StatelessWidget {
   const Bottom({super.key});
@@ -11,19 +11,25 @@ class Bottom extends StatelessWidget {
 
     return DefaultTabController(
       length: 2, // 탭 개수 (HOME, SETTING)
-      child: Scaffold(
-        body: const TabBarView(
-          physics: NeverScrollableScrollPhysics(), // 스와이프 비활성화
-          children: <Widget>[
-            Center(
-              child: Text('home'), // 나중에 HomePage()로 교체 가능
+      child: Column(
+        children: [
+          // TabBarView를 위한 공간 확보
+          const Expanded(
+            child: TabBarView(
+              physics: NeverScrollableScrollPhysics(), // 스와이프 비활성화
+              children: <Widget>[
+                Center(
+                  child: NaverMapWidget(),
+                ),
+                Center(
+                  child: Text('setting'),
+                ),
+              ],
             ),
-            MyPage(),
-          ],
-        ),
-        bottomNavigationBar: Material(
-          color: Colors.white,
-          child: SizedBox(
+          ),
+          // Bottom Navigation Bar
+          Container(
+            color: const Color.fromARGB(255, 255, 255, 255),
             height: screenHeight * 0.1,
             child: const TabBar(
               labelColor: Color.fromARGB(255, 102, 247, 255),
