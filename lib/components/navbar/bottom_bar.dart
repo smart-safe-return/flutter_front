@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_safe_return/components/home/naver_map.dart';
 
 class Bottom extends StatelessWidget {
   const Bottom({super.key});
@@ -18,7 +19,7 @@ class Bottom extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(), // 스와이프 비활성화
               children: <Widget>[
                 Center(
-                  child: Text('home'),
+                  child: NaverMapWidget(),
                 ),
                 Center(
                   child: Text('setting'),
