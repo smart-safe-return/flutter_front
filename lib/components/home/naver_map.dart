@@ -5,6 +5,7 @@ import 'package:location/location.dart';
 import 'package:smart_safe_return/services/location_service.dart';
 import 'package:smart_safe_return/services/permission_service.dart';
 
+
 class NaverMapWidget extends StatefulWidget {
   const NaverMapWidget({super.key});
 
@@ -101,6 +102,7 @@ class _NaverMapWidgetState extends State<NaverMapWidget> {
         onMapTapped: (point, latLng) {
           debugPrint("클릭한 위치: ${latLng.latitude}, ${latLng.longitude}");
         },
+
       ),
     );
   }
