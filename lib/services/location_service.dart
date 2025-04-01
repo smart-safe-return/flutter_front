@@ -1,38 +1,20 @@
-import 'package:location/location.dart';
+import 'package:location/location.dart'; // 위치 관련 기능
 
 class LocationService {
-  final Location _location = Location();
-
-  Future<LocationData> getCurrentLocation() async {
-    bool serviceEnabled;
-    PermissionStatus permissionGranted;
+  static Future<LocationData?> getCurrentLocation() async {
+    Location location = Location();
 
     // 위치 서비스가 활성화되어 있는지 확인
-    serviceEnabled = await _location.serviceEnabled();
+    bool serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
-      serviceEnabled = await _location.requestService();
+      // 위치 서비스가 비활성화되어 있으면 사용자에게 활성화를 요청
+      serviceEnabled = await location.requestService();
       if (!serviceEnabled) {
-        throw Exception("위치 서비스를 활성화해주세요.");
+        return null; // 위치 서비스 활성화가 거부되면 null 반환
       }
     }
 
-    // 위치 권한 확인
-    permissionGranted = await _location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await _location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) {
-        throw Exception("위치 권한을 허용해주세요.");
-      }
-    }
-
-    // 위치 정보 가져오기
-    try {
-      final locationData = await _location.getLocation();
-      print("현재 위치: ${locationData.latitude}, ${locationData.longitude}");
-      return locationData;
-    } catch (e) {
-      print("위치 정보 가져오기 실패: $e");
-      throw Exception("위치 정보 가져오기 실패: $e");
-    }
+    // 위치 데이터를 가져와 반환
+    return await location.getLocation();
   }
 }

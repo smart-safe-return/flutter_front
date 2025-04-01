@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_safe_return/components/home/naver_map.dart';
+import 'package:smart_safe_return/components/settings/mypage.dart';
 
 class Bottom extends StatelessWidget {
   const Bottom({super.key});
@@ -22,7 +23,7 @@ class Bottom extends StatelessWidget {
                   child: NaverMapWidget(),
                 ),
                 Center(
-                  child: Text('setting'),
+                  child: MyPage(),
                 ),
               ],
             ),

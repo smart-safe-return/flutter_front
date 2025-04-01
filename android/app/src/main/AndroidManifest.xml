@@ -21,14 +21,17 @@
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
+                <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+                <uses-permission android:name="android.permission.LOCATION_ALWAYS"/>
+                <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <meta-data
-           android:name="com.naver.maps.map.pklec1aeb7"
-           android:value="pklec1aeb7" />
+           android:name="com.naver.maps.map.vapc94wk74"
+           android:value="vapc94wk74" />
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
